@@ -1,17 +1,17 @@
-# Импортируем нужные классы для разработки своих фильтров
+# Г€Г¬ГЇГ®Г°ГІГЁГ°ГіГҐГ¬ Г­ГіГ¦Г­Г»ГҐ ГЄГ«Г Г±Г±Г» Г¤Г«Гї Г°Г Г§Г°Г ГЎГ®ГІГЄГЁ Г±ГўГ®ГЁГµ ГґГЁГ«ГјГІГ°Г®Гў
 from vkwave.bots.core.dispatching.filters.base import BaseFilter, BaseEvent, FilterResult
 from vkwave.bots import SimpleLongPollBot, SimpleBotEvent
 
 bot = SimpleLongPollBot(tokens='a0511bfbe584e545bceb42855ed6d3931e455d67f74afb84d18935c6bdbb48e69cf273977521613986b85', group_id=213635999)
 
-# мы используем фильтр для команд. он фильтрует все сообщения которые не выглядит как `/<наша команда>`. можно задать свои префиксы, а также передать список команд
-@bot.message_handler(bot.command_filter("софия"))
+# Г¬Г» ГЁГ±ГЇГ®Г«ГјГ§ГіГҐГ¬ ГґГЁГ«ГјГІГ° Г¤Г«Гї ГЄГ®Г¬Г Г­Г¤. Г®Г­ ГґГЁГ«ГјГІГ°ГіГҐГІ ГўГ±ГҐ Г±Г®Г®ГЎГ№ГҐГ­ГЁГї ГЄГ®ГІГ®Г°Г»ГҐ Г­ГҐ ГўГ»ГЈГ«ГїГ¤ГЁГІ ГЄГ ГЄ `/<Г­Г ГёГ  ГЄГ®Г¬Г Г­Г¤Г >`. Г¬Г®Г¦Г­Г® Г§Г Г¤Г ГІГј Г±ГўГ®ГЁ ГЇГ°ГҐГґГЁГЄГ±Г», Г  ГІГ ГЄГ¦ГҐ ГЇГҐГ°ГҐГ¤Г ГІГј Г±ГЇГЁГ±Г®ГЄ ГЄГ®Г¬Г Г­Г¤
+@bot.message_handler(bot.command_filter("Г±Г®ГґГЁГї"))
 def echo(event: SimpleBotEvent) -> str:
     args = event.object.object.message.text.split()
     if len(args) < 2:
-        return "Напиши какой-нибудь текст!"
+        return "ГЌГ ГЇГЁГёГЁ ГЄГ ГЄГ®Г©-Г­ГЁГЎГіГ¤Гј ГІГҐГЄГ±ГІ!"
     textz = event.object.object.message.text
     return textz[7:]
 
 
-bot.run_forever()
+bot.run_forever() 
