@@ -1,1 +1,1 @@
-web: gunicorn --chdir src bot_vk.py --log-file -
+web: gunicorn bot_vk:app --log-file -
