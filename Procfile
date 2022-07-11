@@ -1,1 +1,1 @@
-worker: python bot_vk.py
+web: python telega_botik.py
