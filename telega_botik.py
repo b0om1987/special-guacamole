@@ -9,7 +9,6 @@ from aiogram import Bot, types
 TOKEN = os.getenv('BOT_TOKEN')
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
-endless = 0
 
 HEROKU_APP_NAME = os.getenv('HEROKU_APP_NAME')
 
@@ -47,7 +46,3 @@ if __name__ == '__main__':
         host=WEBAPP_HOST,
         port=WEBAPP_PORT,
     )
-
-while endless==1:
-    sleep(600)
-    endless = 0
