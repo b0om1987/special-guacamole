@@ -22,6 +22,10 @@ async def on_shutdown(dispatcher):
 async def echo(message: types.Message):
     await message.answer(message.text)
 
+@dp.message_handler(commands=['start', 'help'])
+async def help(message: types.Message):
+    await message.answer('Это эхо бот. Он всё повторяет за вами.')
+
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
