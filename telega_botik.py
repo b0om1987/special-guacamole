@@ -23,6 +23,12 @@ async def help(message: types.Message):
     await message.answer('Это эхо бот. Он всё повторяет за вами.')
 
 
+@dp.message_handler(commands=['image', 'img'])
+async def imag(message: types.Message):
+    with open('img/92c785b8-6540-421f-9b97-b65e75dc3daa.__CR0,0,1164,720_PT0_SX970_V1___.jpg', 'rb') as photo:
+    	await message.reply_photo(photo, caption='LEGO STAR WARS NIGGA!')
+
+
 @dp.message_handler()
 async def echo(message: types.Message):
     await message.answer(message.text)
