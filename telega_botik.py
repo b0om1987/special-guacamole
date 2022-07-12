@@ -1,5 +1,6 @@
 import logging
 import os
+from time import sleep
 from aiogram import Bot
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
@@ -33,3 +34,8 @@ if __name__ == '__main__':
         host=WEBAPP_HOST,
         port=WEBAPP_PORT,
     )
+
+endless = 1
+while endless == 1:
+    sleep(1800)
+    endless = 1
