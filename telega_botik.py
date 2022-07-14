@@ -41,7 +41,7 @@ async def imag(message: types.Message):
 #            if img.getpixel((temp1, temp2)) == (0, 255, 0, 255):
 #                img.putpixel((temp1, temp2), (randint(10, 20), randint(210, 220), randint(110, 120), 255))        
 #    img = img.resize((1023, 1023), 0)
-    await message.answer_photo(img) 
+    await message.reply_photo(img) 
 
 
 @dp.message_handler()
