@@ -32,16 +32,15 @@ async def imag(message: types.Message):
     first_layer_image = Image.open('img/head/head_'+str(randint(1, 3))+'.png')
     second_layer_image = Image.open('img/eyes/eyes_'+str(randint(1, 3))+'.png')
     first_layer_image.paste(second_layer_image, (0,0), second_layer_image)
-    first_layer_image.paste(second_layer_image, (0,0), second_layer_image)
     img = first_layer_image
-    width, height = img.size
-    for temp1 in range(width):
-        for temp2 in range(height):
-            if img.getpixel((temp1, temp2)) == (255, 0, 0, 255):
-                img.putpixel((temp1, temp2), (randint(110, 150), randint(8, 20), randint(80, 120), 255))
-            if img.getpixel((temp1, temp2)) == (0, 255, 0, 255):
-                img.putpixel((temp1, temp2), (randint(10, 20), randint(210, 220), randint(110, 120), 255))        
-    img = img.resize((1023, 1023), 0)
+#    width, height = img.size
+#    for temp1 in range(width):
+#        for temp2 in range(height):
+#            if img.getpixel((temp1, temp2)) == (255, 0, 0, 255):
+#                img.putpixel((temp1, temp2), (randint(110, 150), randint(8, 20), randint(80, 120), 255))
+#            if img.getpixel((temp1, temp2)) == (0, 255, 0, 255):
+#                img.putpixel((temp1, temp2), (randint(10, 20), randint(210, 220), randint(110, 120), 255))        
+#    img = img.resize((1023, 1023), 0)
     await message.answer_photo(img) 
 
 
