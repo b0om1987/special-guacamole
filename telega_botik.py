@@ -6,6 +6,10 @@ from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
 from aiogram import Bot, types
 from config import bot, dp, WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
+import PIL
+from PIL import Image
+import random
+from random import randint
 
 
 
