@@ -48,8 +48,8 @@ async def help(message: types.Message):
 async def image_parser(message: types.Message):
     loop = asyncio.get_running_loop()
     with concurrent.futures.ThreadPoolExecutor() as pool:
-            result = await loop.run_in_executor(
-                pool, image_creator)    
+        result = await loop.run_in_executor(
+            pool, image_creator)    
     await message.answer_photo(result)
 
 
