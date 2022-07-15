@@ -9,8 +9,25 @@ import PIL
 from PIL import Image
 import random
 from random import randint
+import concurrent.futures
 
 
+
+
+def image_creator():
+    first_layer_image = Image.open('img/head/head_'+str(randint(1, 3))+'.png')
+    second_layer_image = Image.open('img/eyes/eyes_'+str(randint(1, 3))+'.png')
+    first_layer_image.paste(second_layer_image, (0,0), second_layer_image)
+    img = first_layer_image
+    width, height = img.size
+    for temp1 in range(width):
+        for temp2 in range(height):
+            if img.getpixel((temp1, temp2)) == (255, 0, 0, 255):
+                img.putpixel((temp1, temp2), (randint(110, 150), randint(8, 20), randint(80, 120), 255))
+            if img.getpixel((temp1, temp2)) == (0, 255, 0, 255):
+                img.putpixel((temp1, temp2), (randint(10, 20), randint(210, 220), randint(110, 120), 255))        
+    img = img.resize((1023, 1023), 0)
+    return img
 
 
 async def on_startup(dispatcher):
@@ -27,20 +44,12 @@ async def help(message: types.Message):
 
 
 @dp.message_handler(commands=['image', 'img'])
-async def imag(message: types.Message):
-    first_layer_image = Image.open('img/head/head_'+str(randint(1, 3))+'.png')
-    second_layer_image = Image.open('img/eyes/eyes_'+str(randint(1, 3))+'.png')
-    first_layer_image.paste(second_layer_image, (0,0), second_layer_image)
-    img = first_layer_image
-    width, height = img.size
-    for temp1 in range(width):
-        for temp2 in range(height):
-            if img.getpixel((temp1, temp2)) == (255, 0, 0, 255):
-                img.putpixel((temp1, temp2), (randint(110, 150), randint(8, 20), randint(80, 120), 255))
-            if img.getpixel((temp1, temp2)) == (0, 255, 0, 255):
-                img.putpixel((temp1, temp2), (randint(10, 20), randint(210, 220), randint(110, 120), 255))        
-    img = img.resize((1023, 1023), 0)
-    await message.reply_photo(img) 
+async def image_parser(message: types.Message):
+    loop = asyncio.get_running_loop()
+    with concurrent.futures.ThreadPoolExecutor() as pool:
+            result = await loop.run_in_executor(
+                pool, image_creator)    
+    await message.answer_photo(result)
 
 
 @dp.message_handler()
