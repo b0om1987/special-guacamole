@@ -22,13 +22,15 @@ def image_creator():
     first_layer_image.paste(second_layer_image, (0,0), second_layer_image)
     img = first_layer_image
     width, height = img.size
+    fc = [randint(110, 245), randint(110, 255), randint(150, 255)]
+    sc = [randint(40, 100), randint(30, 60), randint(30, 100)]
     for temp1 in range(width):
         for temp2 in range(height):
             if img.getpixel((temp1, temp2)) == (255, 0, 0, 255):
-                img.putpixel((temp1, temp2), (randint(110, 150), randint(8, 20), randint(80, 120), 255))
+                img.putpixel((temp1, temp2), (randint(fc[0]-40, fc[0]), randint(fc[1]-40, fc[1]), randint(fc[2]-40, fc[2]), 255))
             if img.getpixel((temp1, temp2)) == (0, 255, 0, 255):
-                img.putpixel((temp1, temp2), (randint(10, 20), randint(210, 220), randint(110, 120), 255))        
-    img = img.resize((1023, 1023), 0)
+                img.putpixel((temp1, temp2), (randint(sc[0]-10, sc[0]), randint(sc[1]-10, sc[1]), randint(sc[1]-10, sc[1]), 255))          
+    img = img.resize((1024, 1024), 0)
     return img
 
 
