@@ -47,10 +47,13 @@ async def help(message: types.Message):
 @dp.message_handler(commands=['image', 'img'])
 async def image_parser(message: types.Message):
     loop = asyncio.get_running_loop()
-    with concurrent.futures.ProcessPoolExecutor() as pool:
+    with concurrent.futures.ThreadPoolExecutor() as pool:
         result = await loop.run_in_executor(
             pool, image_creator)
-    await message.answer_photo(result)
+    result.save('temp/result.png')
+    with open('temp/result.png', 'rb') as result:
+        await message.answer_photo(result)
+    os.remove('temp/result.png')
 
 
 @dp.message_handler()
