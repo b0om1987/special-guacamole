@@ -46,14 +46,14 @@ async def help(message: types.Message):
 
 @dp.message_handler(commands=['image', 'img'])
 async def image_parser(message: types.Message):
+    bityblyad = io.BytesIO()
     loop = asyncio.get_running_loop()
     with concurrent.futures.ThreadPoolExecutor() as pool:
         result = await loop.run_in_executor(
             pool, image_creator)
-    result.save('temp/result.png')
-    with open('temp/result.png', 'rb') as result:
-        await message.answer_photo(result)
-    os.remove('temp/result.png')
+    result.save(bityblyad, format='PNG')
+    bityblyad = bityblyad.getvalue()
+    await message.answer_photo(bityblyad)
 
 
 @dp.message_handler()
