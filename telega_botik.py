@@ -1,6 +1,7 @@
 import logging
 import asyncio
 import os
+import io
 from time import sleep
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher import Dispatcher
