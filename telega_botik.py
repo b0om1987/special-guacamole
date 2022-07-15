@@ -22,8 +22,8 @@ def image_creator():
     first_layer_image.paste(second_layer_image, (0,0), second_layer_image)
     img = first_layer_image
     width, height = img.size
-    fc = [randint(110, 245), randint(110, 255), randint(150, 255)]
-    sc = [randint(40, 100), randint(30, 60), randint(30, 100)]
+    fc = [randint(110, 255), randint(130, 255), randint(130, 255)]
+    sc = [randint(30, 100), randint(30, 100), randint(30, 100)]
     for temp1 in range(width):
         for temp2 in range(height):
             if img.getpixel((temp1, temp2)) == (255, 0, 0, 255):
