@@ -17,7 +17,7 @@ import concurrent.futures
 
 
 def image_creator():
-    first_layer_image = Image.open('img/head/head_'+str(randint(1, 14))+'.png')
+    first_layer_image = Image.open('img/head/head_'+str(randint(1, 20))+'.png')
     second_layer_image = Image.open('img/eyes/eyes_'+str(randint(1, 17))+'.png')
     first_layer_image.paste(second_layer_image, (0,0), second_layer_image)
     img = first_layer_image
