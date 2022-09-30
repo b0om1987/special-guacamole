@@ -61,7 +61,10 @@ async def image_parser(message: types.Message):
 
 @dp.message_handler(commands=['echo'])
 async def echo(message: types.Message):
-    await message.answer(message.text)
+    temp = message.text
+    if '/echo ' in temp:
+        temp = temp.replace('/echo ', '', 1)
+    await message.answer(temp)
 
 
 if __name__ == '__main__':
