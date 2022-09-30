@@ -6,7 +6,7 @@ from time import sleep
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
-from aiogram.dispatcher.filters.command import CommandObj
+from aiogram.dispatcher.filters.Command import CommandObj
 from config import bot, dp, WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
 import PIL
 from PIL import Image
