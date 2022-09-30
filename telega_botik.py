@@ -59,7 +59,7 @@ async def image_parser(message: types.Message):
     await message.answer_photo(bityblyad)
 
 
-@dp.message_handler()
+@dp.message_handler(commands=['echo'])
 async def echo(message: types.Message):
     await message.answer(message.text)
 
