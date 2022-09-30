@@ -3,9 +3,10 @@ import asyncio
 import os
 import io
 from time import sleep
-from aiogram import Bot, Dispatcher, executor, types
+from aiogram import Bot, Dispatcher, executor, types, html
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
+from aiogram.dispatcher.filters import CommandObject
 from config import bot, dp, WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
 import PIL
 from PIL import Image
