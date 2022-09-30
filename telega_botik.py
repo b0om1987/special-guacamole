@@ -6,7 +6,6 @@ from time import sleep
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
-from aiogram.dispatcher.filters.Command import CommandObj
 from config import bot, dp, WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
 import PIL
 from PIL import Image
@@ -61,9 +60,10 @@ async def image_parser(message: types.Message):
 
 
 @dp.message_handler(commands=['echo'])
-async def echo(message: types.Message, command: CommandObj):
-    if command.args:
-        await message.answer(command.args)
+async def echo(message: types.Message):
+    temp = message.get_args()
+    if temp:
+        await message.answer(temp)
     else:
         await message.answer("err: No input")
 
