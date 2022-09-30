@@ -3,7 +3,7 @@ import asyncio
 import os
 import io
 from time import sleep
-from aiogram import Bot, Dispatcher, executor, types, html
+from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
 from aiogram.dispatcher.filters import CommandObject
