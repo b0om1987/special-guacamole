@@ -60,11 +60,11 @@ async def image_parser(message: types.Message):
 
 
 @dp.message_handler(commands=['echo'])
-async def echo(message: types.Message):
-    temp = message.text
-    if '/echo ' in temp:
-        temp = temp.replace('/echo ', '', 1)
-    await message.answer(temp)
+async def echo(message: types.Message, command: CommandObject):
+    if command.args:
+        await message.answer(command.args)
+    else:
+        await message.answer("err: No input")
 
 
 if __name__ == '__main__':
